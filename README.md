@@ -102,10 +102,9 @@ Phishnix/
 * [ ] **Browser Extension:** Real-time scanning while surfing the web.
 * [ ] **Deep Learning:** Implementation of Neural Networks for higher accuracy.
 * [ ] **API Access:** Public API for third-party security integrations.
-* [ ] **Live Database:** Auto-updating blacklist from global security feeds.
+* [ ] **Live Database:** Auto-updating blacklist from global security feeds..
 
 ---
 
 ## 📄 License
-
 This project is licensed under the **MIT License** – see the LICENSE file for details.
