@@ -1,108 +1,92 @@
-# 🛡️ Phishnix - AI-Based Phishing Detection System
+🛡️ Phishnix - AI-Based Phishing Detection System
+Phishnix is a machine learning–powered phishing detection system designed to identify malicious URLs and protect users from online scams. This project leverages supervised learning and real-world datasets to provide accurate, real-time security analysis.
 
-![Python](https://img.shields.io/badge/Python-3.8+-green.svg)
-![Flask](https://img.shields.io/badge/Flask-2.0+-blue.svg)
-![Machine Learning](https://img.shields.io/badge/ML-Supervised-orange.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Security](https://img.shields.io/badge/Security-High-brightgreen.svg)
+🌟 Key Features
+Intelligent Detection: Uses supervised ML algorithms to classify URLs as safe or malicious.
 
-Phishnix is a machine learning–powered phishing detection system designed to identify malicious URLs and protect users from online scams.  
-This project improves cybersecurity awareness using real-world datasets and ML techniques.
+Feature Extraction: Analyzes lexical and structural features (URL length, symbols, protocols).
 
----
+Web Interface: A clean, responsive frontend built with Flask.
 
-## 🌟 Key Features
+Instant Results: Optimized model loading via pickle for lightning-fast predictions.
 
-- **Phishing Detection**: Detect malicious URLs using supervised ML algorithms
-- **Real Datasets**: Trained on legitimate and phishing URLs
-- **Web Interface**: Flask-based responsive frontend
-- **Fast Predictions**: ML model loaded via `pickle` for instant detection
-- **Feature Extraction**: URL lexical and structural feature analysis
-- **Secure & Robust**: Handles various URL formats with input validation
+Robust Security: Built-in input validation to handle diverse URL formats safely.
 
----
+📋 Prerequisites
+Before running the project, ensure you have the following installed:
 
-## 📋 Prerequisites
+Python: 3.8 or higher
 
-- **Runtime Environment**: Python 3.8+ (tested up to 3.11)  
-- **Web Framework**: Flask 2.0+  
-- **Dependencies**:
-  - flask
-  - scikit-learn
-  - pandas
-  - numpy
-  - pickle
-- **Datasets**: phishing.csv, legitimateurls.csv, phishurls.csv
+Libraries:
 
----
+Flask (Web Framework)
 
-## 🚀 Installation & Setup
+scikit-learn (Machine Learning)
 
-### 1. Clone Repository
+pandas & numpy (Data Processing)
 
-```bash
+pickle (Model Serialization)
+
+🚀 Installation & Setup
+Follow these steps to get the project running on your local machine:
+
+1. Clone the Repository
+
+Bash
 git clone https://github.com/iAryanbajaj/Phishnix1.2.git
 cd Phishnix1.2
 2. Install Dependencies
+
+Bash
 pip install -r requirements.txt
 3. Run the Application
+
+Bash
 python app.py
-4. Open in Browser
-http://127.0.0.1:5000
-🔒 Security & Validation
-Input Validation
-Ensures data integrity and prevents errors:
-# Example URL input validation
-if not url:
-    flash('URL cannot be empty', 'danger')
-    return redirect(url_for('index'))
-ML Model Security
-Model loaded via pickle for safe and fast predictions
-Sanitized user input to prevent injection or invalid URL issues
-🧠 Machine Learning Overview
-Feature Extraction: Extracts lexical & structural URL features
-Training: Supervised classification (RandomForest / SVM / Logistic Regression)
-Prediction: Instant classification as phishing or legitimate
-Persistence: Model saved as newmodel.pkl for production use
-# Example: Loading model
+4. Access the App
+
+Open your browser and navigate to: http://127.0.0.1:5000
+
+🧠 How It Works
+Input: User enters a URL into the web interface.
+
+Processing: The feature.py script extracts key indicators (e.g., presence of '@', URL depth, HTTPS usage).
+
+Prediction: The pre-trained model (newmodel.pkl) processes these features.
+
+Output: The system displays whether the site is Legitimate or a Phishing threat.
+
+Python
+# Core prediction logic
 import pickle
+
 model = pickle.load(open('newmodel.pkl', 'rb'))
 prediction = model.predict([url_features])
 📁 Project Structure
+Plaintext
 Phishnix/
-│── app.py
-│── train_model.py
-│── feature.py
-│── convert.py
-│── newmodel.pkl
-│── requirements.txt
-│── templates/
-│   ├── index.html
-│   └── usecases.html
-│── static/
-│── DataFiles/
-│   ├── phishing.csv
-│   ├── legitimateurls.csv
-│   └── phishurls.csv
+├── app.py                # Main Flask application
+├── train_model.py        # Script for ML model training
+├── feature.py            # Feature extraction logic
+├── convert.py            # Data conversion utilities
+├── newmodel.pkl          # Saved Machine Learning model
+├── requirements.txt      # Project dependencies
+├── templates/            # HTML files (index, usecases, etc.)
+├── static/               # CSS, JS, and Images
+└── DataFiles/            # Datasets (phishing.csv, phishurls.csv, etc.)
 👥 Contributors
-Aryan Bajaj – Project Lead, Backend & ML Development
-GitHub: https://github.com/iAryanbajaj
-[Friend Name] – Frontend / Data Analysis / Research
-GitHub: https://github.com/FRIEND_GITHUB
-Replace [Friend Name] and GitHub link with actual details.
+Aryan Bajaj – Project Lead & ML Development - iAryanbajaj
+
+[Friend Name] – Frontend / Research - [GitHub Profile Link]
+
 📌 Future Enhancements
-Real-time URL scanning
-Browser extension for phishing detection
-Cloud API deployment
-Improved ML model accuracy
+[ ] Browser Extension: Real-time scanning while surfing the web.
+
+[ ] Deep Learning: Implementation of Neural Networks for higher accuracy.
+
+[ ] API Access: Public API for third-party security integrations.
+
+[ ] Live Database: Auto-updating blacklist from global security feeds.
+
 📄 License
-This project is licensed under the MIT License - see LICENSE
-🙏 Acknowledgments
-Flask - Web framework
-Scikit-learn - Machine learning library
-Pandas & NumPy - Data manipulation
-Real-world phishing datasets for training and testing
-✅ Git Commands After Adding README
-git add README.md
-git commit -m "Updated README with contributors"
-git push
+This project is licensed under the MIT License - see the LICENSE file for details.
